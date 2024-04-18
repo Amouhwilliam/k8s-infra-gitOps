@@ -8,8 +8,7 @@ spec:
     repoURL: "https://github.com/Amouhwilliam/k8s-infra-gitOps"
     path: .
   destination:
-    server: https://kubernetes.default.svc #http://localhost:8080
+    server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy: 
-    automated: 
-      period: 1m
+    automated: {}
