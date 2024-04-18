@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: full-stack-app
+spec:
+  project: default 
+  source:
+    repoURL: "https://github.com/Amouhwilliam/k8s-infra-gitOps"
+    path: .
+  destination:
+    server: https://kubernetes.default.svc #http://localhost:8080
+    namespace: argocd
+  syncPolicy: Automatic
+   # automated: {}
