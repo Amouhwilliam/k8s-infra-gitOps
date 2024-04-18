@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-apps
+data:
+  main_app_api_url: "http://localhost:32000/api/v1" #"http://nodejs-app-svc.default.svc.cluster.local:3333"
+  realtime_app_api_url: "http://localhost:32000/api/v1/devices/all" #"http://nodejs-app-svc.default.svc.cluster.local:3333/api/v1/devices/all"
+  realtime_app_ws_url: "ws://localhost:31000/ws" #"ws://python-app-svc.default.svc.cluster.local:8000/ws"

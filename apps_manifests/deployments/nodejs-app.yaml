@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+  #minReadySeconds: 5
+  #strategy:
+  #rollingUpdate:
+  #maxSurge: 1
+  #maxUnavailable: 0
+  #type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: nodejs-app
+    spec:
+      containers:
+      - name: nodejs-app
+        image: william97/devices-app-nodejs_app:latest
+        imagePullPolicy: Always
+        env:
+        - name: RABBITMQ_HOSTNAME
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: RABBITMQ_HOSTNAME
+              
+        - name: RABBITMQ_USER
+          valueFrom:
+            secretKeyRef:
+              name: backend-apps
+              key: RABBITMQ_USER
+
+        - name: RABBITMQ_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-apps
+              key: RABBITMQ_PASSWORD
+
+        - name: RABBITMQ_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: RABBITMQ_PORT
+
+        - name: RABBITMQ_PROTOCOL
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: RABBITMQ_PROTOCOL
+
+        - name: PG_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: PG_HOST
+
+        - name: PG_USER
+          valueFrom:
+            secretKeyRef:
+              name: backend-apps
+              key: PG_USER
+        
+        - name: PG_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: PG_PORT
+
+        - name: PG_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-apps
+              key: PG_PASSWORD
+
+        - name: PG_DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: PG_DB_NAME
+
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: REDIS_HOST
+
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: backend-apps
+              key: REDIS_PORT
+
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-apps
+              key: REDIS_PASSWORD
+
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3333
+          name: nodejs-app-svc

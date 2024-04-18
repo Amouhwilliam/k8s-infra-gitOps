@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app: services
+
+resources:
+- main-app-svc.yaml
+- postgres-svc.yaml
+- python-app-svc.yaml
+- realtime-app-svc.yaml
+#- redis-svc.yaml
+- nodejs-app-svc.yaml
