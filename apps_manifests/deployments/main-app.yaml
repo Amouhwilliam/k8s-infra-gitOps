@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: main-app
-        image: william97/devices-app-main_app:a037537b89c3cd51fb43bc63f3169b5b24b8e662
+        image: william97/devices-app-main_app:latest
         imagePullPolicy: Always
         env:
         - name: REACT_APP_API_URL
