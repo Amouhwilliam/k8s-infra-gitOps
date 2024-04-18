@@ -10,5 +10,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc #http://localhost:8080
     namespace: argocd
-  syncPolicy: Automatic
-   # automated: {}
+  syncPolicy: 
+    automated: {}
