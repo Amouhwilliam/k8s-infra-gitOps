@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rabbitmq
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: sealed-secrets
+    repoURL: https://charts.bitnami.com/bitnami/rabbitmq
+    targetRevision: 1.16.1
+    helm:
+      releaseName: rabbitmq-server
+  destination:
+    server: "https://kubernetes.default.svc"
+   # namespace: kubeseal

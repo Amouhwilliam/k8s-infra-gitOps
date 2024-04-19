@@ -7,4 +7,3 @@ resources:
 - backend-apps.yaml
 - frontend-apps.yaml
 - postgres.config-map.yaml
-- redis.config-map.yaml

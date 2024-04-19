@@ -6,3 +6,4 @@ commonLabels:
 resources:
 - ./apps_manifests
 - argo-cd.yaml
+#- ./charts/rabbitmq.yaml
