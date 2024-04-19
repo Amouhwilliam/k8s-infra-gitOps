@@ -8,5 +8,4 @@ resources:
 - ./deployments
 - ./secrets
 - ./services
-#- ./statefulsets
 - ./storages

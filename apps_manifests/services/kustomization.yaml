@@ -8,5 +8,4 @@ resources:
 - postgres-svc.yaml
 - python-app-svc.yaml
 - realtime-app-svc.yaml
-#- redis-svc.yaml
 - nodejs-app-svc.yaml
